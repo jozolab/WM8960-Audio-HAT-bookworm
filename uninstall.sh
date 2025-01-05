@@ -15,7 +15,10 @@ uname_r=$(uname -r)
 
 echo "remove dtbos"
 rm  /boot/overlays/wm8960-soundcard.dtbo || true
-sed -i '/dtoverlay=wm8960-soundcard/d' /boot/config.txt
+
+#unset dtoverlays
+sed -i -e 's:dtparam=i2c_arm=on:#dtparam=i2c_arm=on:g'  /boot/firmware/config.txt || true
+sed -i '/dtoverlay=wm8960-soundcard/d' /boot/firmware/config.txt || true
 
 echo "remove alsa configs"
 rm -rf  /etc/wm8960-soundcard/ || true
@@ -36,6 +39,7 @@ echo "remove kernel modules"
 rm  /lib/modules/${uname_r}/kernel/sound/soc/codecs/snd-soc-wm8960.ko || true
 rm  /lib/modules/${uname_r}/kernel/sound/soc/codecs/snd-soc-wm8960-soundcard.ko || true
 
+sed -i '/i2c-dev/d' /etc/modules
 sed -i '/snd-soc-wm8960/d' /etc/modules
 sed -i '/snd-soc-wm8960-soundcard/d' /etc/modules
 

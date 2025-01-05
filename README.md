@@ -1,6 +1,6 @@
-# WM8960 Audio HAT
+# WM8960 Audio HAT, Tested on XGO-Rider with Raspberry OS Lite (64-bit, Bookworm)
 
-The drivers of [WM8960 Audio HAT] for Raspberry Pi.
+The drivers of [WM8960 Audio HAT] for Raspberry Pi (Debian 12 bookworm).
 
 http://www.waveshare.net/shop/WM8960-Audio-HAT.htm
 
@@ -10,8 +10,8 @@ http://www.waveshare.com/wm8960-audio-hat.htm
 Get the wm8960 soundcard source code. and install all linux kernel drivers
 
 ```bash
-git clone https://github.com/waveshare/WM8960-Audio-HAT
-cd WM8960-Audio-HAT
+git clone https://github.com/jozolab/WM8960-Audio-HAT-bookworm
+cd WM8960-Audio-HAT-bookworm
 sudo ./install.sh 
 sudo reboot
 ```
